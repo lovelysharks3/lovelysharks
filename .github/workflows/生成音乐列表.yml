@@ -1,6 +1,10 @@
 name: 生成音乐列表
 
 on:
+  # 手动触发
+  workflow_dispatch:
+
+  # music 文件夹发生变化时自动触发
   push:
     paths:
       - "music/**"
@@ -14,9 +18,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 获取仓库
       - name: 获取仓库
         uses: actions/checkout@v6
 
+      # 生成 music.json
       - name: 生成 music.json
         run: |
           python - <<'PY'
@@ -42,6 +48,7 @@ jobs:
               print(音乐)
           PY
 
+      # 提交 music.json
       - name: 提交 music.json
         run: |
           git config user.name "github-actions[bot]"
