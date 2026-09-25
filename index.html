@@ -420,26 +420,7 @@ document.querySelector("#模糊").addEventListener("click",function(e){
     e.stopPropagation;
     }});
 document.querySelector("#登录按钮").onclick = function(){//登录>主页
-    let 用户名 = document.querySelector("#用户名").value
-    if (用户名 !== 'baka' && document.querySelector("#密码").value === '')
-        {document.querySelector('#登录卡片').classList.remove('渐显');
-        setTimeout(function(){
-        document.querySelector("#主页").style.display='flex';
-        //造三按钮
-        document.querySelector('#主页').insertAdjacentHTML("afterbegin",`<button id="用户">${用户名}</button>`);
-            document.querySelector('#用户').onclick = function(){刷新()};
-            刷新();
-        document.querySelector('#设置按钮').insertAdjacentHTML("afterend",`<button id="发动态">投稿</button>`);
-            document.querySelector('#发动态').onclick = function(){
-            document.querySelector('#主页').style.display='none';
-            document.querySelector('#动态编辑').style.display='flex';
-            document.querySelector('#发动态').style.display='none';
-            document.querySelector('#主页按钮').style.display='block';
-        }},200)
-        document.querySelector('#设置按钮').insertAdjacentHTML("afterend",`<button id="主页按钮" style="display:none">主页</button>`);
-            document.querySelector('#主页按钮').onclick = 切换主页
-        }
-    else {alert("错了，笨蛋")}
+登录切换()
     };//登录>主页
 document.querySelector('#设置按钮').onclick = function(){
     document.querySelector('#模糊').classList.add('渐显')
@@ -636,7 +617,7 @@ function 删除文章(id){
     })
 }
 function 请求音乐(){
-    fetch("/api/music")
+    fetch("./music/music.json")
     .then(res => res.json())
     .then(data=>{
         音乐列表=data;
@@ -661,7 +642,32 @@ function 音乐时间显示(秒i){
     if (秒<10){秒 = '0'+秒};
     return (分+':'+秒)
 }
-setTimeout(function(){document.querySelector('#登录卡片').classList.add('渐显')},10)
+function 登录切换(){
+    let 用户名 = document.querySelector("#用户名").value
+    if (用户名 !== 'baka' && document.querySelector("#密码").value === '')
+        {document.querySelector('#登录卡片').classList.remove('渐显');
+        setTimeout(function(){
+        document.querySelector("#主页").style.display='flex';
+        //造三按钮
+        document.querySelector('#主页').insertAdjacentHTML("afterbegin",`<button id="用户">${用户名}</button>`);
+            document.querySelector('#用户').onclick = function(){刷新()};
+            刷新();
+        document.querySelector('#设置按钮').insertAdjacentHTML("afterend",`<button id="发动态">投稿</button>`);
+            document.querySelector('#发动态').onclick = function(){
+            document.querySelector('#主页').style.display='none';
+            document.querySelector('#动态编辑').style.display='flex';
+            document.querySelector('#发动态').style.display='none';
+            document.querySelector('#主页按钮').style.display='block';
+        }},200)
+        document.querySelector('#设置按钮').insertAdjacentHTML("afterend",`<button id="主页按钮" style="display:none">主页</button>`);
+            document.querySelector('#主页按钮').onclick = 切换主页
+        }
+    else {alert("错了，笨蛋")}
+}
+setTimeout(function(){
+    document.querySelector('#登录卡片').classList.add('渐显');
+    // 登录切换()
+},0)
 </script>
 
 </body>
