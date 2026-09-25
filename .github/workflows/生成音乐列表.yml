@@ -1,4 +1,3 @@
-```yaml
 name: 生成音乐列表
 
 on:
@@ -59,4 +58,3 @@ jobs:
 
           git diff --cached --quiet || git commit -m "自动更新音乐列表"
           git push
-```
