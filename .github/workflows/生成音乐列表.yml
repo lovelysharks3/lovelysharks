@@ -14,7 +14,8 @@ permissions:
   contents: write
 
 jobs:
-  生成:
+  generate:
+    name: 生成音乐列表
     runs-on: ubuntu-latest
 
     steps:
