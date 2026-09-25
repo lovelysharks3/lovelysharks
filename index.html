@@ -461,7 +461,7 @@ function 加载音乐卡片(n){
     function 下一首(){
         if(音乐索引===音乐列表.length-1){音乐索引=0}
         else{音乐索引++};
-        音乐.src = '/music/' + 音乐列表[音乐索引];
+        音乐.src = './music/' + 音乐列表[音乐索引];
         document.querySelector('.进度').style.width = 0
     };
     document.querySelector('#主页').insertAdjacentHTML('afterbegin',
