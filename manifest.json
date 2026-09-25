@@ -9,8 +9,8 @@
     "theme_color": "#ffffff",
     "icons": [
         {
-            "src": "./shark0.png",
-            "sizes": "64x64",
+            "src": "./shark.png",
+            "sizes": "48x48",
             "type": "image/png"
         },
         {
