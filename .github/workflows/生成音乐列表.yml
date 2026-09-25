@@ -23,7 +23,7 @@ jobs:
       - name: 获取仓库
         uses: actions/checkout@v6
 
-      # 生成 music.json
+      # 生成 music/music.json
       - name: 生成 music.json
         run: |
           python - <<'PY'
@@ -41,7 +41,7 @@ jobs:
 
           音乐列表.sort()
 
-          with open("music.json", "w", encoding="utf-8") as f:
+          with open("music/music.json", "w", encoding="utf-8") as f:
               json.dump(音乐列表, f, ensure_ascii=False, indent=2)
 
           print("音乐列表：")
@@ -49,13 +49,13 @@ jobs:
               print(音乐)
           PY
 
-      # 提交 music.json
+      # 提交 music/music.json
       - name: 提交 music.json
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add music.json
+          git add music/music.json
 
           git diff --cached --quiet || git commit -m "自动更新音乐列表"
           git push
