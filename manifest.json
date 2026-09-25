@@ -10,11 +10,11 @@
     "icons": [
         {
             "src": "./shark.png",
-            "sizes": "192x192",
+            "sizes": "48x48",
             "type": "image/png"
         },
         {
-            "src": "./shark.png",
+            "src": "./shark512.png",
             "sizes": "512x512",
             "type": "image/png"
         }
